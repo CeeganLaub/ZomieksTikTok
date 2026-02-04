@@ -1,0 +1,38 @@
+name = "zomieks"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Main entry point for Next.js on Cloudflare
+main = ".worker-next/index.mjs"
+
+# D1 Database Binding
+[[d1_databases]]
+binding = "DB"
+database_name = "zomieks-db"
+database_id = "placeholder-id" # Replace with actual ID after creation
+
+# KV Namespace Bindings
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "placeholder-id" # Replace with actual ID after creation
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "placeholder-id" # Replace with actual ID after creation
+
+# R2 Bucket Binding
+[[r2_buckets]]
+binding = "FILES"
+bucket_name = "zomieks-files"
+
+# Environment Variables
+[vars]
+ENVIRONMENT = "development"
+
+# Production Environment
+[env.production]
+vars = { ENVIRONMENT = "production" }
+
+# Local Development
+[env.local]
+vars = { ENVIRONMENT = "local" }
